@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/login.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Menu</title>
+    <style>
+         div{
+            /*background-color: rgba(0, 0, 0, 0.6);*/
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            padding: 80px;
+            border-radius: 15px;
+            color: #fff;
+            border-style: dotted; /** Define a borda pontilhada. **/
+        }
+        input{
+            width: 100%;
+            padding: 12px;
+            border: none;
+            outline: none;
+            font-size: 15px;
+        }
+            .homebutton{
+            border: none;
+            padding: 15px;
+            width: 100%;
+            border-radius: 10px;
+            color: white;
+            font-size: 25px;
+            
+        }
+        .homebutton:hover{
+            background-color: deepskyblue;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form>
+        <div>
+        <h1>Login</h1>
+        <input type="text" id = "nick" required="required" placeholder="Nickname" name="nick"></br></br>
+        <input type="password" id="senha" required="required" placeholder="Password" name="senha"></br></br>
+        <a type="button" id = "login" value="submit" class="homebutton"> Entrar</a></br></br>
+
+        
+        
+        <h3 id="cadastrar">não tem conta? <u>cadastrar</u> </h3>
+        </div>
+      </form>
+    <script src="javascript/login.js"></script>
+</body>
+
+</html>

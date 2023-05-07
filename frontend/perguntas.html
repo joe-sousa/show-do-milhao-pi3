@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles/perguntas.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Perguntas</title>
+  <style>
+    
+
+  </style>
+</head>
+
+<body>
+  <div class="estipoPaginaPergunta">
+  <div class="container mt-5">
+     <h1 class="titulo" id="title">
+      Show Do Milhão
+    </h1>
+  </div>
+  <div>
+    <h3 id="premio" class="titulo">Premio</h3>
+
+  </div>
+
+
+  <div class="container mt-5">
+    <h2 class="titulo" id="pergunta">
+
+    </h2>
+  </div>
+  <div>
+    <form style="margin: auto; width: 220px;" id="form">
+    <center>
+      <div class="perguntabutton" id="div1">
+      <a type="button" id="btn3" value="submit" onclick="verificarAcertou(this)"> login</a>
+      </div>
+      <br>
+      <br>
+      <div class="perguntabutton" id="div2">
+        <a type="button" id="btn2" value="submit" onclick="verificarAcertou(this)"> login</a>
+      </div>
+      </br>
+      </br>
+      <div class="perguntabutton" id="div3">
+        <a type="button" id="btn1" value="submit" onclick="verificarAcertou(this)"> login</a>
+      </div>
+    <br>
+    <br>
+      <div class="perguntabutton" id="div4">
+        <a type="button" id="btn4" value="submit" onclick="verificarAcertou(this)"> login</a>
+
+      </div>
+    </center>
+      <br>
+    </form>
+    <br>
+    <br>
+    <br>
+    
+    <div id="eliminar" class="homebutton">
+      
+    </div>
+    
+    <br>
+    <br>
+    <br>
+    <div class="homebutton" id="eliminar">
+      <a type="button" id="parar" value="submit"> Parar a partida</a>
+    </div>
+      <br>
+      <br>
+      <br>
+      <div class="homebutton" id="denunciar">
+        <a type="button"  value="submit"> denunciar pergunta</a>
+      </div>
+    <br>
+    <br>
+  </div>
+  </div>
+  <div id="snackbar">Você Já utilizou a eliminação uma vez</div>
+  <script src="javascript/jogo.js"></script>
+  
+  
+  <script>
+    $(document).ready(function() {
+        function disableBack() {
+            window.history.forward()
+        }
+        window.onload = disableBack();
+        window.onpageshow = function(e) {
+            if (e.persisted)
+                disableBack();
+        }
+    });
+</script>
+
+</body>
+</html>

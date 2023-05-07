@@ -1,0 +1,461 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600&display=swap");
+
+:root {
+  --lightGreen: rgb(121, 156, 65);
+  --darkBlue: #0b141e;
+  --blue: #399af5;
+  --white: #eff1f5;
+  --grey: #171e27;
+}
+
+body {
+  background-color: var(--darkBlue);
+  font-family: "Poppins", sans-serif;
+  margin-top: 130px;
+}
+
+.card {
+  box-shadow: 0px 0px 3px 1px var(--white);
+  max-width: 430px;
+  height: 750px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  border-radius: 24px;
+  padding: 40px 50px;
+  position: relative;
+}
+
+.profile__picture {
+  /*background-image: url("imgs/perfil.jpg");*/
+  height: 100px;
+  width: 100px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 100%;
+  border: 1px solid #fff;
+  box-shadow: 0px 0px 2px 2px var(--lightGreen);
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+.profile__name {
+  color: var(--white);
+  text-shadow: 1px 1px 1px #333;
+  margin-left: 50%;
+  transform: translateX(-33%);
+}
+
+.profile__informations {}
+
+.profile__job {
+  color: var(--white);
+  font-size: 10px;
+  font-weight: 200;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+i {
+  color: var(--blue);
+  filter: drop-shadow(0px 0px 3px var(--blue));
+  transition: all ease 0.5s;
+}
+
+i:hover {
+  color: var(--white);
+}
+
+.toggle {
+  color: white;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid white;
+  background-color: var(--grey);
+  border-radius: 12px;
+  padding: 20px;
+  position: relative;
+}
+
+label {
+  align-items: center;
+  align-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  width: 100%;
+  z-index: -1;
+  display: flex;
+  justify-content: space-around;
+}
+
+label>span {
+  padding: 15px 40px;
+  border-radius: 12px;
+  background-color: var(--blue);
+
+  position: absolute;
+  left: 10px;
+  z-index: -1;
+  transition: all 0.5s ease-in-out;
+}
+
+#toggle__checkbox:checked~span {
+  left: 50%;
+  padding: 15px 45px;
+}
+
+label input {
+  opacity: 0;
+}
+
+#toggle__checkbox {
+  position: absolute;
+}
+
+@keyframes tech__1 {
+  0% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+
+  30% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+
+  70% {
+    transform: translateX(10%);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(10%);
+    opacity: 1;
+  }
+}
+
+@keyframes tech__2 {
+  0% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+
+  25% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+
+  45% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+
+  85% {
+    transform: translateX(10%);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(10%);
+    opacity: 1;
+  }
+}
+
+@keyframes tech__3 {
+  0% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+
+  59% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+
+  99% {
+    transform: translateX(10%);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(10%);
+    opacity: 1;
+  }
+}
+
+@keyframes showTitle {
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation: add_opacity 900ms ease forwards;
+}
+
+.fadeOut {
+  animation: remove_opacity 900ms ease forwards;
+}
+
+@keyframes remove_opacity {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes add_opacity {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .card {
+    margin-left: 280px;
+    margin-top: 0;
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 601px) {
+  .card {
+    margin-left: 50%;
+    margin-top: 0;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 540px) {
+  .card {
+    box-shadow: 0px 0px 3px 1px var(--white);
+    max-width: 390px;
+    height: 750px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    border-radius: 24px;
+    padding: 40px 50px;
+    position: relative;
+  }
+
+  label>span {
+    padding: 15px 40px;
+    border-radius: 12px;
+    background-color: var(--blue);
+
+    position: absolute;
+    left: 10px;
+    z-index: -1;
+    transition: all 0.5s ease-in-out;
+  }
+
+  #toggle__checkbox:checked~span {
+    left: 45%;
+    padding: 15px 45px;
+  }
+}
+
+.copy {
+  color: white;
+  font-weight: 200;
+  font-size: 10px;
+  margin-left: 50%;
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.homebutton {
+  background: #653DF6;
+  background-image: -webkit-linear-gradient(top, #653DF6, #163681);
+  background-image: -moz-linear-gradient(top, #653DF6, #163681);
+  background-image: -ms-linear-gradient(top, #653DF6, #163681);
+  background-image: -o-linear-gradient(top, #653DF6, #163681);
+  background-image: -webkit-gradient(to bottom, #653DF6, #163681);
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  height: 20px;
+  line-height: 20px;
+  color: #FFFFFF;
+  font-family: Arial;
+  width: 339px;
+  font-size: 26px;
+  font-weight: 900;
+  padding: 12px;
+  -webkit-box-shadow: 1px 1px 6px 0 #000000;
+  -moz-box-shadow: 1px 1px 6px 0 #000000;
+  box-shadow: 1px 1px 6px 0 #000000;
+  text-shadow: 1px 1px 6px #000000;
+  border: solid #2C7676 1px;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+}
+
+.titulo {
+
+
+  text-align: center;
+  color: #FFFFFF;
+  font-family: Arial;
+
+  font-size: 26px;
+  font-weight: 900;
+  padding: 12px;
+  inline-size: auto;
+
+
+}
+
+.eliminarMensagem {
+
+
+  text-align: center;
+  color: #fd0000;
+  font-family: Arial;
+
+  font-size: 26px;
+  font-weight: 900;
+  padding: 12px;
+  inline-size: auto;
+
+
+}
+
+#eliminar {
+  display: inline;
+}
+.mudar{
+  background: #653DF6;
+  background-image: -webkit-linear-gradient(top, #653DF6, #163681);
+  background-image: -moz-linear-gradient(top, #653DF6, #163681);
+  background-image: -ms-linear-gradient(top, #653DF6, #163681);
+  background-image: -o-linear-gradient(top, #653DF6, #163681);
+  background-image: -webkit-gradient(to bottom, #653DF6, #163681);
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  height: 20px;
+  line-height: 20px;
+  color: #FFFFFF;
+  font-family: Arial;
+  width: 339px;
+  font-size: 26px;
+  font-weight: 900;
+  padding: 12px;
+  -webkit-box-shadow: 1px 1px 6px 0 #000000;
+  -moz-box-shadow: 1px 1px 6px 0 #000000;
+  box-shadow: 1px 1px 6px 0 #000000;
+  text-shadow: 1px 1px 6px #000000;
+  border: solid #2C7676 1px;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+}
+
+.teste{
+  background: #00d451;
+}
+.estipoPaginaPergunta{
+  text-align: center;
+  border-style: dotted; /** Define a borda pontilhada. **/
+  color: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  left: 22%;
+  width: 700px;
+  height: 120vh;
+  position: absolute;
+  transform: translate(-0%,-5%);
+
+  
+  
+}
+.perguntabutton{
+  width: 550px;
+  left: 13%;
+  background-color: #4682B4;
+  text-align: center;
+  position: absolute;
+  padding: 10px;
+  border-radius: 15px;
+  color: #fff;
+}
+.perguntabutton:hover{
+  background-color: deepskyblue;
+  cursor: pointer;
+}
+.homebutton{
+  width: 400px;
+  left: 22%;
+  position: absolute;
+  border-radius: 10px;
+  /*background-color: #008B8B;
+  text-align: center;
+  position: absolute;
+  padding: 10px;
+  border-radius: 15px;
+  color: #fff;*/
+}
+
+/* The snackbar - position it at the bottom and in the middle of the screen */
+#snackbar {
+  visibility: hidden; /* Hidden by default. Visible on click */
+  min-width: 250px; /* Set a default minimum width */
+  margin-left: -125px; /* Divide value of min-width by 2 */
+  background-color: #333; /* Black background color */
+  color: #fff; /* White text color */
+  text-align: center; /* Centered text */
+  border-radius: 2px; /* Rounded borders */
+  padding: 16px; /* Padding */
+  position: fixed; /* Sit on top of the screen */
+  z-index: 1; /* Add a z-index if needed */
+  left: 50%; /* Center the snackbar */
+  bottom: 30px; /* 30px from the bottom */
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar.show {
+  visibility: visible; /* Show the snackbar */
+  /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+  However, delay the fade out process for 2.5 seconds */
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}

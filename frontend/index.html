@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Projeto Show do Milhão</title>
+
+</head>
+
+<body>
+  <style>
+    .table-bg {
+      color: white;
+      text-align: center;
+      border-color: white;
+      /** Insere a borda azulbranca. **/
+      border-style: dotted;
+      /** Define a borda pontilhada. **/
+      border-radius: 15px 15px 15px 15px;
+      width: 430px;
+    }
+  </style>
+  </head>
+  <div class="card">
+    <section class="profile">
+      <div class="profile__informations">
+        <div class="profile__picture" id="img"></div>
+        <p class="profile__job" id="user">Bem Vindo(a):</p>
+        <font color=white>
+
+          </font>
+      </div>
+    </section>
+    <div class="toggle">
+      <label>
+        <div class="skills__button actived__button">Menu</div>
+        <div class="projects__button deactived__button">Hall da Fama</div>
+        <input type="checkbox" name="" id="toggle__checkbox" />
+        <span></span>
+      </label>
+    </div>
+    <section class="skills fadeIn" >
+      <center id="selecao">
+        <br>
+        <a href="#" class="homebutton" id="jogar" onclick="jogar()">JOGAR</a>
+        <br>
+        <br>
+        <a class='homebutton' href='editarconta.html' title='Editar'>Editar Conta
+          
+        </a>
+        <br>
+        <br>
+        <a  href='excluirconta.html' class="homebutton">Excluir Conta</a>
+        <br>
+        <br>
+        <a href="adicionarpergunta.html" class="homebutton">Adicionar Pergunta</a>
+        <br>
+        <br>
+        <a href="listadeperguntas.html" class="homebutton">Lista de Perguntas</a>
+        <br>
+        <br>
+        <a href="estatistica.html" class="homebutton">Estatísticas</a>
+        <br>
+        <br>
+        <a class="homebutton" id="sair">Sair</a>
+        <br>
+        <br>
+      </center>
+    </section>
+    <section class="projects fadeOut">
+      <br>
+      <table class="table text-white table-bg">
+        <thead>
+          <tr>
+            <th scope="col" id="posicao1"> Posição </th>
+            <th scope="col" id="nickname1"> Nikname </th>
+            <th scope="col" id="pontuacao1"> Pontuação </th>
+          </tr>
+        </thead>
+
+        <thead>
+          <tr>
+            <th scope="col" id="posicao2"> Posição </th>
+            <th scope="col" id="nickname2"> Nikname </th>
+            <th scope="col" id="pontuacao2"> Pontuação </th>
+          </tr>
+        </thead>
+
+        <thead>
+          <tr>
+            <th scope="col" id="posicao3"> Posição </th>
+            <th scope="col" id="nickname3"> Nikname </th>
+            <th scope="col" id="pontuacao3"> Pontuação </th>
+          </tr>
+        </thead>
+
+
+        <thead>
+          <tr>
+            <th scope="col" id="posicao4"> Posição </th>
+            <th scope="col" id="nickname4"> Nikname </th>
+            <th scope="col" id="pontuacao4"> Pontuação </th>
+          </tr>
+        </thead>
+
+        <thead>
+          <tr>
+            <th scope="col" id="posicao5"> Posição </th>
+            <th scope="col" id="nickname5"> Nikname </th>
+            <th scope="col" id="pontuacao5"> Pontuação </th>
+          </tr>
+        </thead>
+
+
+        <thead>
+          <tr>
+            <th scope="col" id="posicao6"> Posição </th>
+            <th scope="col" id="nickname6"> Nikname </th>
+            <th scope="col" id="pontuacao6"> Pontuação </th>
+          </tr>
+        </thead>
+
+        <thead>
+          <tr>
+            <th scope="col" id="posicao7"> Posição </th>
+            <th scope="col" id="nickname7"> Nikname </th>
+            <th scope="col" id="pontuacao7"> Pontuação </th>
+          </tr>
+        </thead>
+
+
+        <thead>
+          <tr>
+            <th scope="col" id="posicao8"> Posição </th>
+            <th scope="col" id="nickname8"> Nikname </th>
+            <th scope="col" id="pontuacao8"> Pontuação </th>
+          </tr>
+        </thead>
+
+        <thead>
+          <tr>
+            <th scope="col" id="posicao9"> Posição </th>
+            <th scope="col" id="nickname9"> Nikname </th>
+            <th scope="col" id="pontuacao9"> Pontuação </th>
+          </tr>
+        </thead>
+
+        <thead>
+          <tr>
+            <th scope="col" id="posicao10"> Posição </th>
+            <th scope="col" id="nickname10"> Nikname </th>
+            <th scope="col" id="pontuacao10"> Pontuação </th>
+          </tr>
+        </thead>
+
+        <thead>
+          <tr>
+            <th scope="col" id="posicao11"> Posição </th>
+            <th scope="col" id="nickname11"> Nikname </th>
+            <th scope="col" id="pontuacao11"> Pontuação </th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </section>
+  </div>
+  <footer>
+
+  </footer>
+
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="modal-texto">Bem vindo ao Show do Milhão.</h2>
+      <p id="modal-texto">Show do Milhão é o um jogo em que os usuário terá que responder 7 perguntas para conseguir
+        o prêmio máxima de um milhão de reais. São 7 perguntas no total, sendo a primeira valendo mil reais e a ultima um milhão.
+        Em cada Pergunta o usuário poderá parar a partida ou selecionar ajuda, sendo ajuda podendo ser utilizado apenas uma vez por partida.
+        Cada vez que o usuário vai acertando as perguntas, o prêmio vai acumulando até chegar ao valor máximo.
+        
+      </p>
+      <p id="modal-texto">  Esse jogo as perguntas podem ser adicionadas por usuários, mas um usuário escolhido aleatoriamente irá
+        decidir se a pergunta será adiciona. Você pode adiconar perguntas clicando no icone Adicionar Pergunta. Você também pode denunciar
+        perguntas caso veja algo de errado nelas. Perguntas que forem denuncias por mais de dois usuário seram enviadas para a análise.
+      </p>
+    </div>
+  
+  </div>
+
+  <script src="javascript/menu.js"></script>
+
+
+</body>
+
+</html>

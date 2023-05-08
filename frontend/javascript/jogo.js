@@ -1,4 +1,6 @@
 const perguntas = JSON.parse(sessionStorage.getItem("perguntas"));
+const usuario = JSON.parse(sessionStorage.getItem("usuario"));
+
 console.log(perguntas);
 const premiacao = [
   {
@@ -85,12 +87,62 @@ mostrarPergunta(indicePergunta);
 mostrarPremio(indicePergunta);
 function verificarAcertou(elemento) {
   if (elemento.innerHTML == perguntas[indicePergunta].correta) {
-    indicePergunta += 1;
-    alert("correta resposta");
-    mostrarPergunta(indicePergunta);
-    mostrarPremio(indicePergunta);
+    if (indicePergunta == 6) {
+      resultado = JSON.stringify({
+        resultado: "campeão",
+        pontos: premiacao[indicePergunta].acertar,
+      });
+
+      sessionStorage.setItem("resultado", resultado);
+      api_pontos(usuario[0].id, premiacao[indicePergunta].acertar);
+      api_vitoria(usuario[0].id);
+      alert("vc foi campeão, parabéns");
+      window.location.href = "resultado.html";
+    } else {
+      indicePergunta += 1;
+      alert("correta resposta");
+      mostrarPergunta(indicePergunta);
+      mostrarPremio(indicePergunta);
+    }
   }
 }
 function mostrarPremio(indice) {
   premio.innerHTML = `Acertar = ${premiacao[indice].acertar} Parar = ${premiacao[indice].parar} Errar = ${premiacao[indice].errar}`;
+}
+const url = "http://localhost:3000/api/v1/usuario";
+function api_vitoria(id) {
+  const data = {
+    id: id,
+  };
+  fetch(url + "/vitoria", {
+    method: "PUT",
+    body: JSON.stringify(data),
+    headers: { "Content-type": "application/json; charset=UTF-8" },
+  })
+    .then((response) => response.json())
+    .then((json) => {
+      //alert(JSON.stringify(json));
+    })
+    .catch((err) => {
+      alert(JSON.stringify(err));
+    });
+}
+
+function api_pontos(id, pontos) {
+  let data = {
+    id: id,
+    pontos: pontos,
+  };
+  fetch(url + "/salvarpontos", {
+    method: "PUT",
+    body: JSON.stringify(data),
+    headers: { "Content-type": "application/json; charset=UTF-8" },
+  })
+    .then((response) => response.json())
+    .then((json) => {
+      //alert(JSON.stringify(json));
+    })
+    .catch((err) => {
+      alert(JSON.stringify(err));
+    });
 }

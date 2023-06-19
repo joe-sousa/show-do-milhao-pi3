@@ -22,7 +22,6 @@ async function getPerguntas() {
   const [rows] = await conn.query(
     "SELECT * FROM perguntas where validacao = 1 order by RAND() LIMIT 7;"
   );
-  console.log(rows);
   return rows;
 }
 
@@ -61,11 +60,25 @@ async function salvarpontos(id, pontos) {
   const values = [pontos, id];
   return await conn.query(sql, values);
 }
-
+async function somaPartidasParadas(id) {
+  const conn = await connect();
+  const sql = `UPDATE usuario set partidas_paradas  = partidas_paradas  + 1 where id = ? `;
+  const values = [id];
+  return await conn.query(sql, values);
+}
 async function derrota(id) {
   const conn = await connect();
   const sql = `UPDATE usuario set derrotas  = derrotas  + 1 where id = ? `;
   const values = [id];
+  return await conn.query(sql, values);
+}
+
+async function cadastrarUsuario(nome, nickname, senha, avatar) {
+  const conn = await connect();
+  const sql = `insert into usuario (nome, nickname, senha, avatar)
+  values (?,?,?,?)
+  `;
+  const values = [nome, nickname, senha, avatar];
   return await conn.query(sql, values);
 }
 module.exports = {
@@ -77,4 +90,6 @@ module.exports = {
   vitoria,
   salvarpontos,
   derrota,
+  somaPartidasParadas,
+  cadastrarUsuario,
 };

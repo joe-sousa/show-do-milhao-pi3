@@ -46,7 +46,30 @@ const btn2 = document.querySelector("#btn2");
 const btn1 = document.querySelector("#btn1");
 const btn4 = document.querySelector("#btn4");
 const premio = document.querySelector("#premio");
+const parar = document.querySelector("#parar");
+const eliminar = document.querySelector("#eliminar");
 function mostrarPergunta(i) {
+  let arrayBtn = [
+    {
+      btn: btn1,
+      div: "#div1",
+    },
+    {
+      btn: btn2,
+      div: "#div2",
+    },
+    {
+      btn: btn3,
+      div: "#div3",
+    },
+    {
+      btn: btn4,
+      div: "#div4",
+    },
+  ];
+  for (let i = 0; i < arrayBtn.length; i++) {
+    document.querySelector(arrayBtn[i].div).style.backgroundColor = "#4682B4";
+  }
   let indice = i;
   pergunta.innerHTML = perguntas[indice].pergunta;
   let dadosPerguntas = [
@@ -80,11 +103,43 @@ function mostrarPergunta(i) {
   ) {
     aleatorio4 = Math.floor(Math.random() * 4);
   }
+  eliminar.addEventListener("click", () => {
+    if (!utilizaEliminacao) {
+      let contador = 0;
+      for (let i = 0; i < arrayBtn.length; i++) {
+        if (arrayBtn[i].btn.innerHTML != dadosPerguntas[3]) {
+          document.querySelector(arrayBtn[i].div).style.backgroundColor = "red";
+          contador++;
+        }
+        if (contador == 2) {
+          break;
+        }
+      }
+      utilizaEliminacao = true;
+    } else {
+      alert("a eliminação de duas respostas já foi utilizado");
+    }
+  });
   btn4.innerHTML = dadosPerguntas[aleatorio4];
 }
 let indicePergunta = 0;
+let utilizaEliminacao = false;
 mostrarPergunta(indicePergunta);
 mostrarPremio(indicePergunta);
+function gerenciarBotoes() {
+  parar.addEventListener("click", () => {
+    api_pontos(usuario[0].id, premiacao[indicePergunta].parar);
+    alert("o jogo foi parado");
+    somapartidasparadas(usuario[0].id);
+    resultado = JSON.stringify({
+      resultado: "partida parada",
+      pontos: premiacao[indicePergunta].parar,
+    });
+    sessionStorage.setItem("resultado", resultado);
+    window.location.href = "resultado.html";
+  });
+}
+gerenciarBotoes();
 function verificarAcertou(elemento) {
   if (elemento.innerHTML == perguntas[indicePergunta].correta) {
     if (indicePergunta == 6) {
@@ -101,9 +156,20 @@ function verificarAcertou(elemento) {
     } else {
       indicePergunta += 1;
       alert("correta resposta");
+
       mostrarPergunta(indicePergunta);
       mostrarPremio(indicePergunta);
     }
+  } else {
+    api_pontos(usuario[0].id, premiacao[indicePergunta].errar);
+    alert("resposta errada");
+    derrota(usuario[0].id);
+    resultado = JSON.stringify({
+      resultado: "derrota",
+      pontos: premiacao[indicePergunta].errar,
+    });
+    sessionStorage.setItem("resultado", resultado);
+    window.location.href = "resultado.html";
   }
 }
 function mostrarPremio(indice) {
@@ -134,6 +200,42 @@ function api_pontos(id, pontos) {
     pontos: pontos,
   };
   fetch(url + "/salvarpontos", {
+    method: "PUT",
+    body: JSON.stringify(data),
+    headers: { "Content-type": "application/json; charset=UTF-8" },
+  })
+    .then((response) => response.json())
+    .then((json) => {
+      //alert(JSON.stringify(json));
+    })
+    .catch((err) => {
+      alert(JSON.stringify(err));
+    });
+}
+
+function derrota(id) {
+  const data = {
+    id: id,
+  };
+  fetch(url + "/derrota", {
+    method: "PUT",
+    body: JSON.stringify(data),
+    headers: { "Content-type": "application/json; charset=UTF-8" },
+  })
+    .then((response) => response.json())
+    .then((json) => {
+      //alert(JSON.stringify(json));
+    })
+    .catch((err) => {
+      alert(JSON.stringify(err));
+    });
+}
+
+function somapartidasparadas(id) {
+  const data = {
+    id: id,
+  };
+  fetch(url + "/somapartidasparadas", {
     method: "PUT",
     body: JSON.stringify(data),
     headers: { "Content-type": "application/json; charset=UTF-8" },

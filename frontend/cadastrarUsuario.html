@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="styles/login.css" />
+  <link rel="stylesheet" href="styles/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -14,7 +14,7 @@
     div {
       /*background-color: rgba(0, 0, 0, 0.6);*/
       position: absolute;
-      top: 50%;
+      top: 390px;
       left: 50%;
       transform: translate(-50%, -50%);
       padding: 80px;
@@ -46,6 +46,9 @@
       background-color: deepskyblue;
       cursor: pointer;
     }
+    a{
+        color: white;
+    }
   </style>
 </head>
 
@@ -53,17 +56,30 @@
 
   <form>
     <div>
-      <h1 id="resultado">Vitoria Ou Derrota</h1>
-      <h2 id="dinheiro"></h2>
-      <a type="button" id="menu" href="index.html" class="homebutton"> menu</a></br></br>
-
+      <h1>Cadastro Usuário</h1>
+      <input  id="nome" placeholder="Nome" name="nome"></br></br>
+      <input  id="nick" placeholder="Nickname" name="nickname"></br></br>
+      <input  id="senha" placeholder="Password" name="senha"></br></br>
+      <label for="" style="margin-top: 14px;">Foto de Perfil</label>
+      <input type="file" name="" id="imagem">
+      <br>
+      <img src="img/1.jpg" alt="" srcset="" height="70px" id="1" title="Selecionar Avatar">
+      <img src="img/2.jpg" alt="" srcset="" height="70px" id="2" title="Selecionar Avatar">
+      <img src="img/3.jpg" alt="" srcset="" height="70px" id="3" title="Selecionar Avatar">
+      <img src="img/4.jpg" alt="" srcset="" height="70px" id="4" title="Selecionar Avatar">
     
+      <img src="img/5.jpg" alt="" srcset="" height="70px" id="5" title="Selecionar Avatar">
+    </br></br>
+      <a type="button" id="btnCadastrar" value="submit" class="homebutton"> Cadastrar</a></br></br>
+
+        <h3 id="login"> Já tem conta? <u><a href="login.html">Fazer Login</a></u> </h3>
+    </div>
 
 
     
 
   </form>
-  
+  <script src="javascript/cadastrarUsuario.js"></script>
 </body>
-<script src="javascript/resultado.js"></script>
+
 </html>

@@ -9,6 +9,7 @@ exports.utilizaEliminacao = async (req, res) => {
 
 exports.somaPartidas = async (req, res) => {
   const partidas = await db.somaPartidasJogadas(req.body.id);
+  console.log(partidas);
   res.status(200).json({
     usuario: partidas,
   });
@@ -32,5 +33,23 @@ exports.derrota = async (req, res) => {
   const derrota = await db.derrota(req.body.id);
   res.status(200).json({
     usuario: derrota,
+  });
+};
+exports.somaPartidasParadas = async (req, res) => {
+  const partida = await db.somaPartidasParadas(req.body.id);
+  res.status(200).json({
+    usuario: partida,
+  });
+};
+
+exports.cadastrarUsuario = async (req, res) => {
+  const cadastro = await db.cadastrarUsuario(
+    req.body.nome,
+    req.body.nickname,
+    req.body.senha,
+    req.body.avatar
+  );
+  res.status(200).json({
+    usuario: cadastro,
   });
 };

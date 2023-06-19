@@ -1,7 +1,7 @@
 const perguntas = JSON.parse(sessionStorage.getItem("perguntas"));
 const usuario = JSON.parse(sessionStorage.getItem("usuario"));
 
-console.log(perguntas);
+console.log(usuario);
 const premiacao = [
   {
     acertar: 1000,
@@ -103,9 +103,10 @@ function mostrarPergunta(i) {
   ) {
     aleatorio4 = Math.floor(Math.random() * 4);
   }
-  eliminar.addEventListener("click", () => {
+  eliminar.onclick = () => {
     if (!utilizaEliminacao) {
       let contador = 0;
+      utilizaeliminacaoResposta(usuario[0].id);
       for (let i = 0; i < arrayBtn.length; i++) {
         if (arrayBtn[i].btn.innerHTML != dadosPerguntas[3]) {
           document.querySelector(arrayBtn[i].div).style.backgroundColor = "red";
@@ -119,7 +120,7 @@ function mostrarPergunta(i) {
     } else {
       alert("a eliminação de duas respostas já foi utilizado");
     }
-  });
+  };
   btn4.innerHTML = dadosPerguntas[aleatorio4];
 }
 let indicePergunta = 0;
@@ -190,7 +191,7 @@ function api_vitoria(id) {
       //alert(JSON.stringify(json));
     })
     .catch((err) => {
-      alert(JSON.stringify(err));
+      console.log(err);
     });
 }
 
@@ -214,6 +215,7 @@ function api_pontos(id, pontos) {
 }
 
 function derrota(id) {
+  console.log(id);
   const data = {
     id: id,
   };
@@ -226,9 +228,7 @@ function derrota(id) {
     .then((json) => {
       //alert(JSON.stringify(json));
     })
-    .catch((err) => {
-      alert(JSON.stringify(err));
-    });
+    .catch((err) => {});
 }
 
 function somapartidasparadas(id) {
@@ -245,6 +245,24 @@ function somapartidasparadas(id) {
       //alert(JSON.stringify(json));
     })
     .catch((err) => {
-      alert(JSON.stringify(err));
+      //alert(JSON.stringify(err));
+    });
+}
+
+function utilizaeliminacaoResposta(id) {
+  const data = {
+    id: id,
+  };
+  fetch(url + "/utilizaeliminacao", {
+    method: "PUT",
+    body: JSON.stringify(data),
+    headers: { "Content-type": "application/json; charset=UTF-8" },
+  })
+    .then((response) => response.json())
+    .then((json) => {
+      //alert(JSON.stringify(json));
+    })
+    .catch((err) => {
+      //alert(JSON.stringify(err));
     });
 }

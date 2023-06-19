@@ -75,10 +75,10 @@ async function derrota(id) {
 
 async function cadastrarUsuario(nome, nickname, senha, avatar) {
   const conn = await connect();
-  const sql = `insert into usuario (nome, nickname, senha, avatar)
-  values (?,?,?,?)
+  const sql = `insert into usuario (nome, nickname, senha, avatar, derrotas, perguntasadc, perguntasnaoadc, partidasjogadas, premiacaototal, utilizaeliminacao, partidas_paradas)
+  values (?,?,?,?, ?, ?, ?, ?, ?, ?,?)
   `;
-  const values = [nome, nickname, senha, avatar];
+  const values = [nome, nickname, senha, avatar, 0, 0, 0, 0, 0, 0, 0];
   return await conn.query(sql, values);
 }
 module.exports = {

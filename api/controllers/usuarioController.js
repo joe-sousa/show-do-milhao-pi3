@@ -2,6 +2,7 @@ const db = require("../db");
 
 exports.utilizaEliminacao = async (req, res) => {
   const eliminacao = await db.utilizaEliminacao(req.body.id);
+  console.log("id = " + req.body.id);
   res.status(200).json({
     usuario: eliminacao,
   });
@@ -9,7 +10,7 @@ exports.utilizaEliminacao = async (req, res) => {
 
 exports.somaPartidas = async (req, res) => {
   const partidas = await db.somaPartidasJogadas(req.body.id);
-  console.log(partidas);
+  console.log(req.body.id);
   res.status(200).json({
     usuario: partidas,
   });

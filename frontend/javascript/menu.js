@@ -1,6 +1,7 @@
-const usuario = JSON.parse(sessionStorage.getItem("usuario"));
+let usuario = JSON.parse(sessionStorage.getItem("usuario"));
 const userMenu = document.getElementById("user");
-console.log(usuario);
+const sair = document.getElementById("sair");
+console.log(usuario[0].avatar);
 if (!usuario) {
   window.location.href = "login.html";
 }
@@ -37,7 +38,13 @@ function somaPartidas(id) {
     .then((json) => {
       //alert(JSON.stringify(json));
     })
-    .catch((err) => {
-      alert(JSON.stringify(err));
-    });
+    .catch((err) => {});
 }
+
+const imagemPerfil = document.getElementById("img");
+imagemPerfil.style.backgroundImage = `url('../api/${usuario[0].avatar}')`;
+
+sair.onclick = () => {
+  usuario = null;
+  window.location.href = "login.html";
+};

@@ -48,3 +48,22 @@ sair.onclick = () => {
   usuario = null;
   window.location.href = "login.html";
 };
+
+function apagarConta() {
+  if (confirm("deseja realmente apagar a conta?")) {
+    const data = {
+      id: usuario[0].id,
+    };
+    fetch(`http://localhost:3000/api/v1/usuario/apagarusuario`, {
+      method: "delete",
+      body: JSON.stringify(data),
+      headers: { "Content-type": "application/json; charset=UTF-8" },
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        alert("a conta foi excluída");
+        window.location.href = "login.html";
+      })
+      .catch((err) => {});
+  }
+}

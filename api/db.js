@@ -30,10 +30,18 @@ async function login(nickname, senha) {
   const [rows] = await conn.query(
     `SELECT * FROM usuario where nickname="${nickname}" and senha="${senha}" `
   );
-  console.log(rows);
+
   return rows;
 }
-
+async function getEstatisticasUsuario(id) {
+  const conn = await connect();
+  const [rows] = await conn.query(`
+    SELECT perguntasadc, perguntasadc, partidasjogadas, premiacaototal,
+    utilizaeliminacao, derrotas, partidas_paradas, vitorias FROM
+    usuario WHERE id = ${id}
+  `);
+  return rows;
+}
 async function utilizaEliminacao(id) {
   const conn = await connect();
   const sql = `UPDATE usuario set utilizaeliminacao = utilizaeliminacao + 1 where id = ? `;
@@ -81,6 +89,32 @@ async function cadastrarUsuario(nome, nickname, senha, avatar) {
   const values = [nome, nickname, senha, avatar, 0, 0, 0, 0, 0, 0, 0];
   return await conn.query(sql, values);
 }
+
+async function apagarUsuario(id) {
+  const conn = await connect();
+
+  const sql = `delete from usuario where id = ?`;
+  const values = [id];
+
+  return await conn.query(sql, values);
+}
+
+async function getHallDaFama() {
+  const conn = await connect();
+  const [rows] = await conn.query(`
+  SELECT * FROM usuario order by premiacaototal DESC
+  `);
+  return rows;
+}
+
+async function atualizarUsuario(nickanme, nome, senha, avatar, id) {
+  const conn = await connect();
+  const sql = `
+  UPDATE usuario set nickname = ?, nome = ?, senha = ?, avatar = ? where id = ?
+  `;
+  const values = [nickanme, nome, senha, avatar, id];
+  return await conn.query(sql, values);
+}
 module.exports = {
   selectCustomers,
   getPerguntas,
@@ -92,4 +126,8 @@ module.exports = {
   derrota,
   somaPartidasParadas,
   cadastrarUsuario,
+  apagarUsuario,
+  getEstatisticasUsuario,
+  getHallDaFama,
+  atualizarUsuario,
 };

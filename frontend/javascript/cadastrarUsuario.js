@@ -49,7 +49,7 @@ function cadastrarUsuario(nome, senha, nickname, avatar) {
       window.location.href = "login.html";
     })
     .catch((err) => {
-      alert(JSON.stringify(err));
+      alert(err);
     });
 }
 
@@ -71,6 +71,6 @@ function salvarImagem(image) {
       );
     })
     .catch((err) => {
-      alert(JSON.stringify(err));
+      alert("coloque um avatar");
     });
 }

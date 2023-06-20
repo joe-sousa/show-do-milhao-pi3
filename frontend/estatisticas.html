@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles/login.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Estatisticas</title>
+  <style>
+    div {
+      /*background-color: rgba(0, 0, 0, 0.6);*/
+      position: absolute;
+      top: 600px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 80px;
+      border-radius: 15px;
+      color: #fff;
+      border-style: dotted;
+      /** Define a borda pontilhada. **/
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      outline: none;
+      font-size: 15px;
+    }
+
+    .homebutton {
+      border: none;
+      padding: 15px;
+      width: 100%;
+      border-radius: 10px;
+      color: white;
+      font-size: 25px;
+
+    }
+
+    .homebutton:hover {
+      background-color: deepskyblue;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <form>
+    <div id="bodyEstatisticas">
+      <h2>Minhas Estatísticas</h2></br>
+     <h2>Vitorias:</h2>
+     <p id="vitorias">0</p>
+      <h2>Derrotas:</h2>
+      
+      <p id="derrotas">0</p>
+
+      <h2>Partidas Paradas:</h2>
+      <p id="paradas">0</p>
+      <h2>Utiliza Eliminação:</h2>
+      <p id="eliminacao">0</p>
+      <h2>Pontuação Total:</h2>
+      <p id="total">0</p>
+      <h2 >Partidas Jogadas:</h2>
+      <p id="jogadas">0</p>
+
+      <h2 >Pontos por Partidas:</h2>
+      <p id="pontosporpartida">0</p>
+
+      <h2 >Porcentagem de Vitorias:</h2>
+      <p id="porcevitorias">0</p></br>
+      <a href="menu.html" type="button" id="voltar" value="submit" class="homebutton"> voltar</a></br></br>
+    </div>
+
+
+    
+
+  </form>
+  <script src="javascript/menu.js"></script>
+  <script src="javascript/estatisticas.js"></script>
+</body>
+
+</html>

@@ -9,4 +9,10 @@ router.route("/salvarpontos").put(usuarioController.salvarpontos);
 router.route("/derrota").put(usuarioController.derrota);
 router.route("/somapartidasparadas").put(usuarioController.somaPartidasParadas);
 router.route("/cadastrarusuario").post(usuarioController.cadastrarUsuario);
+router.route("/apagarusuario").delete(usuarioController.apagarUsuario);
+router.route("/estatisticas/:id").get(usuarioController.getEstatisticasUsuario);
+
+router.route("/halldafama").get(usuarioController.getHallDaFama);
+
+router.route("/atualizarusuario").put(usuarioController.atualizarUsuario);
 module.exports = router;

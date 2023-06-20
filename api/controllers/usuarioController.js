@@ -54,3 +54,40 @@ exports.cadastrarUsuario = async (req, res) => {
     usuario: cadastro,
   });
 };
+
+exports.apagarUsuario = async (req, res) => {
+  const resultado = await db.apagarUsuario(req.body.id);
+
+  res.status(200).json({
+    usuario: resultado,
+  });
+};
+
+exports.getEstatisticasUsuario = async (req, res) => {
+  console.log(req.params);
+  const estatisticas = await db.getEstatisticasUsuario(req.params.id);
+
+  res.status(200).json({
+    estatisticas: estatisticas[0],
+  });
+};
+
+exports.getHallDaFama = async (req, res) => {
+  const hallDaFama = await db.getHallDaFama();
+  res.status(200).json({
+    data: hallDaFama,
+  });
+};
+exports.atualizarUsuario = async (req, res) => {
+  const novoUsuario = await db.atualizarUsuario(
+    req.body.nickname,
+    req.body.nome,
+    req.body.senha,
+    req.body.avatar,
+    req.body.id
+  );
+  console.log(novoUsuario);
+  res.status(200).json({
+    status: "usuario atualizado com sucesso",
+  });
+};
